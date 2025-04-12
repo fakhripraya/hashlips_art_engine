@@ -24,15 +24,62 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
-    layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+    growEditionSizeTo: 25,
+    layersOrder: [ // Specific for Cyborg
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "CYBORG", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { name: "EYES" },
+      { name: "FACE" },
+      { name: "HAIR" },
+      { name: "TOP" },
+      { 
+        name: "TRANSPARENT", 
+        options: {
+          displayName: "TOP",
+        }, 
+      },
+      { name: "PANTS" },
+      { 
+        name: "TRANSPARENT", 
+        options: {
+          displayName: "PANTS",
+        }, 
+      },
+      { name: "COAT" },
+      { 
+        name: "TRANSPARENT", 
+        options: {
+          displayName: "COAT",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+    ],
+  },
+  {
+    growEditionSizeTo: 25,
+    layersOrder: [ // Specific for Cyborg with sets
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "CYBORG", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { name: "EYES" },
+      { name: "FACE" },
+      { name: "HAIR" },
+      { name: "SET" },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
     ],
   },
 ];
@@ -42,8 +89,8 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
+  width: 2000,
+  height: 2000,
   smoothing: false,
 };
 
@@ -72,7 +119,7 @@ const pixelFormat = {
 };
 
 const background = {
-  generate: true,
+  generate: false,
   brightness: "80%",
   static: false,
   default: "#000000",

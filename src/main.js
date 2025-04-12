@@ -86,28 +86,91 @@ const getElements = (path) => {
     });
 };
 
+// const layersSetup = (layersOrder) => {
+//   const layers = layersOrder.map((layerObj, index) => ({
+//     id: index,
+//     elements: getElements(`${layersDir}/${layerObj.name}/`),
+//     name:
+//       layerObj.options?.["displayName"] != undefined
+//         ? layerObj.options?.["displayName"]
+//         : layerObj.name,
+//     blend:
+//       layerObj.options?.["blend"] != undefined
+//         ? layerObj.options?.["blend"]
+//         : "source-over",
+//     opacity:
+//       layerObj.options?.["opacity"] != undefined
+//         ? layerObj.options?.["opacity"]
+//         : 1,
+//     bypassDNA:
+//       layerObj.options?.["bypassDNA"] !== undefined
+//         ? layerObj.options?.["bypassDNA"]
+//         : false,
+//   }));
+
+//   console.log(layers)
+//   return layers;
+// };
+
 const layersSetup = (layersOrder) => {
-  const layers = layersOrder.map((layerObj, index) => ({
-    id: index,
-    elements: getElements(`${layersDir}/${layerObj.name}/`),
-    name:
-      layerObj.options?.["displayName"] != undefined
+  const mergedLayersMap = new Map();
+
+  layersOrder.forEach((layerObj, index) => {
+    const name =
+      layerObj.options?.["displayName"] !== undefined
         ? layerObj.options?.["displayName"]
-        : layerObj.name,
-    blend:
-      layerObj.options?.["blend"] != undefined
-        ? layerObj.options?.["blend"]
-        : "source-over",
-    opacity:
-      layerObj.options?.["opacity"] != undefined
-        ? layerObj.options?.["opacity"]
-        : 1,
-    bypassDNA:
-      layerObj.options?.["bypassDNA"] !== undefined
-        ? layerObj.options?.["bypassDNA"]
-        : false,
-  }));
-  return layers;
+        : layerObj.name;
+
+    const elements = getElements(`${layersDir}/${layerObj.name}/`);
+    const existingLayer = mergedLayersMap.get(name);
+
+    if (existingLayer) {
+      // Merge elements
+      existingLayer.elements.push(...elements);
+
+      // Overwrite options with the latest one (as per your request)
+      existingLayer.blend =
+        layerObj.options?.["blend"] !== undefined
+          ? layerObj.options["blend"]
+          : "source-over";
+      existingLayer.opacity =
+        layerObj.options?.["opacity"] !== undefined
+          ? layerObj.options["opacity"]
+          : 1;
+      existingLayer.bypassDNA =
+        layerObj.options?.["bypassDNA"] !== undefined
+          ? layerObj.options["bypassDNA"]
+          : false;
+    } else {
+      // First time seeing this layer
+      mergedLayersMap.set(name, {
+        id: index,
+        elements: [...elements],
+        name,
+        blend:
+          layerObj.options?.["blend"] !== undefined
+            ? layerObj.options["blend"]
+            : "source-over",
+        opacity:
+          layerObj.options?.["opacity"] !== undefined
+            ? layerObj.options["opacity"]
+            : 1,
+        bypassDNA:
+          layerObj.options?.["bypassDNA"] !== undefined
+            ? layerObj.options["bypassDNA"]
+            : false,
+      });
+    }
+  });
+
+  // Re-index all elements inside each layer
+  const finalLayers = Array.from(mergedLayersMap.values()).map((layer, idx) => {
+    layer.id = idx;
+    layer.elements = layer.elements.map((el, i) => ({ ...el, id: i }));
+    return layer;
+  });
+
+  return finalLayers;
 };
 
 const saveImage = (_editionCount) => {

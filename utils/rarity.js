@@ -36,9 +36,18 @@ layerConfigurations.forEach((config) => {
         : layer.name;
     // don't include duplicate layers
     if (!rarityData.includes(layer.name)) {
-      // add elements for each layer to chart
-      rarityData[layerName] = elementsForLayer;
+      if (!rarityData[layerName]) {
+        // If it doesn't exist, initialize it with the current elements
+        rarityData[layerName] = elementsForLayer;
+      } else {
+        // If it exists, append elementsForLayer to it
+        rarityData[layerName].push(...elementsForLayer);
+      }
     }
+    // if (!rarityData.includes(layer.name)) {
+    //   // add elements for each layer to chart
+    //   rarityData[layerName] = elementsForLayer;
+    // }
   });
 });
 
