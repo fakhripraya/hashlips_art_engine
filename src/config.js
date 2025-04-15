@@ -23,9 +23,10 @@ const solanaMetadata = {
 
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
+  // Specific for Cyborg
   {
     growEditionSizeTo: 25,
-    layersOrder: [ // Specific for Cyborg
+    layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
       { 
@@ -63,9 +64,10 @@ const layerConfigurations = [
       { name: "HEADWEAR" },
     ],
   },
+  // Specific for Cyborg with sets (excluding niqab)
   {
-    growEditionSizeTo: 25,
-    layersOrder: [ // Specific for Cyborg with sets
+    growEditionSizeTo: 50,
+    layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
       { 
@@ -82,9 +84,127 @@ const layerConfigurations = [
       { name: "BAGS" },
     ],
   },
+  // Specific for Cyborg with niqab only
+  {
+    growEditionSizeTo: 75,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "CYBORG", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { name: "EYES" },
+      { name: "FACE" },
+      { 
+        name: "NIQAB HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NIQAB", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+    ],
+  },
+  // Specific for Demon
+  {
+    growEditionSizeTo: 100,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "DEMON", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "DEMON EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { name: "FACE" },
+      { name: "HAIR" },
+      { name: "TOP" },
+      { name: "PANTS" },
+      { name: "COAT" },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+    ],
+  },
+  // Specific for Demon with sets (excluding niqab)
+  {
+    growEditionSizeTo: 150,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "DEMON", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "DEMON EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { name: "FACE" },
+      { name: "HAIR" },
+      { name: "SET" },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+    ],
+  },
+  // Specific for Demon with niqab only
+  {
+    growEditionSizeTo: 175,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "DEMON", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "DEMON EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { name: "FACE" },
+      { 
+        name: "NIQAB HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NIQAB", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+    ],
+  },
 ];
 
-const shuffleLayerConfigurations = false;
+const shuffleLayerConfigurations = true;
 
 const debugLogs = false;
 
