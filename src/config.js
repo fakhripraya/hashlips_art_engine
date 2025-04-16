@@ -23,7 +23,7 @@ const solanaMetadata = {
 
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
-  // Specific for Cyborg
+  // Specific for Cyborg (non set)
   {
     growEditionSizeTo: 25,
     layersOrder: [ 
@@ -36,7 +36,12 @@ const layerConfigurations = [
         }, 
       },
       { name: "EYES" },
-      { name: "FACE" },
+      { 
+        name: "CYBORG FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
       { name: "HAIR" },
       { name: "TOP" },
       { 
@@ -62,9 +67,10 @@ const layerConfigurations = [
       { name: "HAND WEAPON" },
       { name: "BAGS" },
       { name: "HEADWEAR" },
+      { name: "NECK" },
     ],
   },
-  // Specific for Cyborg with sets (excluding niqab)
+  // Specific for Cyborg with sets (excluding niqab and nun)
   {
     growEditionSizeTo: 50,
     layersOrder: [ 
@@ -77,11 +83,18 @@ const layerConfigurations = [
         }, 
       },
       { name: "EYES" },
-      { name: "FACE" },
+      { 
+        name: "CYBORG FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
       { name: "HAIR" },
       { name: "SET" },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
     ],
   },
   // Specific for Cyborg with niqab only
@@ -97,7 +110,12 @@ const layerConfigurations = [
         }, 
       },
       { name: "EYES" },
-      { name: "FACE" },
+      { 
+        name: "CYBORG FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
       { 
         name: "NIQAB HAIR", 
         options: {
@@ -112,11 +130,53 @@ const layerConfigurations = [
       },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
+      { name: "NECK" },
     ],
   },
-  // Specific for Demon
+  // Specific for Cyborg with nun only
   {
     growEditionSizeTo: 100,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "CYBORG", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { name: "EYES" },
+      { 
+        name: "CYBORG FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "NUN HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NUN", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { 
+        name: "NUN NECK", 
+        options: {
+          displayName: "NECK",
+        }, 
+      },
+    ],
+  },
+  // Specific for Demon (non set)
+  {
+    growEditionSizeTo: 125,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -140,9 +200,10 @@ const layerConfigurations = [
       { name: "HAND WEAPON" },
       { name: "BAGS" },
       { name: "HEADWEAR" },
+      { name: "NECK" },
     ],
   },
-  // Specific for Demon with sets (excluding niqab)
+  // Specific for Demon with sets (excluding niqab and nun)
   {
     growEditionSizeTo: 150,
     layersOrder: [ 
@@ -165,6 +226,8 @@ const layerConfigurations = [
       { name: "SET" },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
     ],
   },
   // Specific for Demon with niqab only
@@ -200,6 +263,507 @@ const layerConfigurations = [
       },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Demon with nun only
+  {
+    growEditionSizeTo: 175,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "DEMON", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "DEMON EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { name: "FACE" },
+      { 
+        name: "NUN HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NUN", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { 
+        name: "NUN NECK", 
+        options: {
+          displayName: "NECK",
+        }, 
+      },
+    ],
+  },
+  // Specific for Red Spirit (non set)
+  {
+    growEditionSizeTo: 200,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "RED SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { name: "TOP" },
+      { name: "PANTS" },
+      { name: "COAT" },
+      { 
+        name: "RED SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Red Spirit with sets (excluding niqab and nun)
+  {
+    growEditionSizeTo: 225,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "RED SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { name: "SET" },
+      { 
+        name: "RED SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Red Spirit with niqab only
+  {
+    growEditionSizeTo: 250,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "RED SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "NIQAB HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NIQAB", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Red Spirit with nun only
+  {
+    growEditionSizeTo: 275,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "RED SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "NUN HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NUN", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { 
+        name: "RED SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { 
+        name: "NUN NECK", 
+        options: {
+          displayName: "NECK",
+        }, 
+      },
+    ],
+  },
+  // Specific for Blue Spirit (non set)
+  {
+    growEditionSizeTo: 300,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "BLUE SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { name: "TOP" },
+      { name: "PANTS" },
+      { name: "COAT" },
+      { 
+        name: "BLUE SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Blue Spirit with sets (excluding niqab and nun)
+  {
+    growEditionSizeTo: 325,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "BLUE SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { name: "SET" },
+      { 
+        name: "BLUE SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Blue Spirit with niqab only
+  {
+    growEditionSizeTo: 350,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "BLUE SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "NIQAB HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NIQAB", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Blue Spirit with nun only
+  {
+    growEditionSizeTo: 375,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { 
+        name: "BLUE SPIRIT", 
+        options: {
+          displayName: "BODY TYPE",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT EYES", 
+        options: {
+          displayName: "EYES",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT FACE", 
+        options: {
+          displayName: "FACE",
+        }, 
+      },
+      { 
+        name: "NUN HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NUN", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { 
+        name: "BLUE SPIRIT HAND WEAPON", 
+        options: {
+          displayName: "HAND WEAPON",
+        }, 
+      },
+      { name: "BAGS" },
+      { 
+        name: "NUN NECK", 
+        options: {
+          displayName: "NECK",
+        }, 
+      },
+    ],
+  },
+  // Specific for Human (non set)
+  {
+    growEditionSizeTo: 400,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { name: "BODY TYPE" },
+      { name: "EYES" },
+      { name: "FACE" },
+      { name: "HAIR" },
+      { name: "TOP" },
+      { name: "PANTS" },
+      { name: "COAT" },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Human with sets (excluding niqab and nun)
+  {
+    growEditionSizeTo: 425,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { name: "BODY TYPE" },
+      { name: "EYES" },
+      { name: "FACE" },
+      { name: "HAIR" },
+      { name: "SET" },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { name: "HEADWEAR" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Human with niqab only
+  {
+    growEditionSizeTo: 450,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { name: "BODY TYPE" },
+      { name: "EYES" },
+      { name: "FACE" },
+      { 
+        name: "NIQAB HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NIQAB", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { name: "NECK" },
+    ],
+  },
+  // Specific for Human with nun only
+  {
+    growEditionSizeTo: 500,
+    layersOrder: [ 
+      { name: "BACKGROUND" },
+      { name: "BACK WEAPON" },
+      { name: "BODY TYPE" },
+      { name: "EYES" },
+      { name: "FACE" },
+      { 
+        name: "NUN HAIR", 
+        options: {
+          displayName: "HAIR",
+        }, 
+      },
+      { 
+        name: "NUN", 
+        options: {
+          displayName: "SET",
+        }, 
+      },
+      { name: "HAND WEAPON" },
+      { name: "BAGS" },
+      { 
+        name: "NUN NECK", 
+        options: {
+          displayName: "NECK",
+        }, 
+      },
     ],
   },
 ];
