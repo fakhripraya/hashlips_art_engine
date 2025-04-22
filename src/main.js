@@ -1,9 +1,12 @@
 const basePath = process.cwd();
 const { NETWORK } = require(`${basePath}/constants/network.js`);
-const fs = require("fs");
+const fs = require('fs');
+const path = require('path');
 const sha1 = require(`${basePath}/node_modules/sha1`);
 const { createCanvas, loadImage } = require(`${basePath}/node_modules/canvas`);
 const buildDir = `${basePath}/build`;
+const dnaDir = `${basePath}/dna`;
+const dnaPath = path.join(__dirname, '../dna/_dnaList.json');
 const layersDir = `${basePath}/layers`;
 const {
   format,
@@ -28,20 +31,35 @@ ctx.imageSmoothingEnabled = format.smoothing;
 var metadataList = [];
 var attributesList = [];
 var dnaList = new Set();
+try {
+  const data = fs.readFileSync(dnaPath, 'utf-8');
+  const parsed = JSON.parse(data);
+  if (Array.isArray(parsed)) {
+    dnaList = new Set(parsed);
+  }
+} catch (err) {
+  console.error('Error reading DNA list:', err);
+}
+
 const DNA_DELIMITER = "-";
 const HashlipsGiffer = require(`${basePath}/modules/HashlipsGiffer.js`);
 
 let hashlipsGiffer = null;
 
 const buildSetup = () => {
-  if (fs.existsSync(buildDir)) {
-    fs.rmdirSync(buildDir, { recursive: true });
+  if (!fs.existsSync(buildDir)) {
+    fs.mkdirSync(buildDir);
+    fs.mkdirSync(`${buildDir}/json`);
+    fs.mkdirSync(`${buildDir}/images`);
   }
-  fs.mkdirSync(buildDir);
-  fs.mkdirSync(`${buildDir}/json`);
-  fs.mkdirSync(`${buildDir}/images`);
+  
   if (gif.export) {
     fs.mkdirSync(`${buildDir}/gifs`);
+  }
+
+  // dna
+  if (!fs.existsSync(dnaDir)) {
+    fs.mkdirSync(dnaDir);
   }
 };
 
@@ -202,7 +220,7 @@ const addMetadata = (_dna, _edition) => {
     date: dateTime,
     ...extraMetadata,
     attributes: attributesList,
-    compiler: "HashLips Art Engine",
+    compiler: "Hychan",
   };
   if (network == NETWORK.sol) {
     tempMetadata = {
@@ -370,6 +388,10 @@ const writeMetaData = (_data) => {
   fs.writeFileSync(`${buildDir}/json/_metadata.json`, _data);
 };
 
+const writeDNAList = (_data) => {
+  fs.writeFileSync(`${dnaDir}/_dnaList.json`, _data);
+};
+
 const saveMetaDataSingleFile = (_editionCount) => {
   let metadata = metadataList.find((meta) => meta.edition == _editionCount);
   debugLogs
@@ -384,7 +406,7 @@ const saveMetaDataSingleFile = (_editionCount) => {
 };
 
 function shuffle(array) {
-  let currentIndex = array.length,
+  let currentIndex = array.length -1,
     randomIndex;
   while (currentIndex != 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -398,13 +420,16 @@ function shuffle(array) {
 }
 
 const startCreating = async () => {
+  // when hit 1084, 1-1 dna should run out so remove 1/1 from layer config
   let layerConfigIndex = 0;
   let editionCount = 1;
   let failedCount = 0;
   let abstractedIndexes = [];
+  let abstractedIndexesFrom = 2597;
+  let abstractedIndexesTo = 2812; // 2597 + 216 - 1
   for (
-    let i = network == NETWORK.sol ? 0 : 1;
-    i <= layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo;
+    let i = network == NETWORK.sol ? 0 : abstractedIndexesFrom;
+    i <= abstractedIndexesTo;
     i++
   ) {
     abstractedIndexes.push(i);
@@ -490,6 +515,7 @@ const startCreating = async () => {
     layerConfigIndex++;
   }
   writeMetaData(JSON.stringify(metadataList, null, 2));
+  writeDNAList(JSON.stringify([...dnaList], null, 2));
 };
 
 module.exports = { startCreating, buildSetup, getElements };

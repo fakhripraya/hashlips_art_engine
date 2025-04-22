@@ -50,6 +50,7 @@ build/Release
 # Dependency directories
 
 build/
+build final/
 dist/
 node_modules/
 jspm_packages/
@@ -141,3 +142,4 @@ dist
 
 .DS_Store
 layers
+dna/_dnaList.json

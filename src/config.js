@@ -5,8 +5,8 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "Hychan";
+const description = "The first anime NFT on Hyperliquid. Cyber waifus, zero patience, 100% degen. You either get in early or cry later. Just dominance.";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
@@ -25,7 +25,7 @@ const solanaMetadata = {
 const layerConfigurations = [
   // Specific for Cyborg (non set)
   {
-    growEditionSizeTo: 25,
+    growEditionSizeTo: 15,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -72,7 +72,7 @@ const layerConfigurations = [
   },
   // Specific for Cyborg with sets (excluding niqab and nun)
   {
-    growEditionSizeTo: 50,
+    growEditionSizeTo: 30,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -99,7 +99,7 @@ const layerConfigurations = [
   },
   // Specific for Cyborg with niqab only
   {
-    growEditionSizeTo: 75,
+    growEditionSizeTo: 33,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -130,12 +130,11 @@ const layerConfigurations = [
       },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
-      { name: "NECK" },
     ],
   },
   // Specific for Cyborg with nun only
   {
-    growEditionSizeTo: 100,
+    growEditionSizeTo: 36,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -176,7 +175,7 @@ const layerConfigurations = [
   },
   // Specific for Demon (non set)
   {
-    growEditionSizeTo: 125,
+    growEditionSizeTo: 51,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -205,7 +204,7 @@ const layerConfigurations = [
   },
   // Specific for Demon with sets (excluding niqab and nun)
   {
-    growEditionSizeTo: 150,
+    growEditionSizeTo: 66,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -232,7 +231,7 @@ const layerConfigurations = [
   },
   // Specific for Demon with niqab only
   {
-    growEditionSizeTo: 175,
+    growEditionSizeTo: 69,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -263,12 +262,11 @@ const layerConfigurations = [
       },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
-      { name: "NECK" },
     ],
   },
   // Specific for Demon with nun only
   {
-    growEditionSizeTo: 175,
+    growEditionSizeTo: 72,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -309,7 +307,7 @@ const layerConfigurations = [
   },
   // Specific for Red Spirit (non set)
   {
-    growEditionSizeTo: 200,
+    growEditionSizeTo: 87,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -340,12 +338,7 @@ const layerConfigurations = [
       { name: "TOP" },
       { name: "PANTS" },
       { name: "COAT" },
-      { 
-        name: "RED SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
       { name: "HEADWEAR" },
       { name: "NECK" },
@@ -353,7 +346,7 @@ const layerConfigurations = [
   },
   // Specific for Red Spirit with sets (excluding niqab and nun)
   {
-    growEditionSizeTo: 225,
+    growEditionSizeTo: 102,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -382,12 +375,7 @@ const layerConfigurations = [
         }, 
       },
       { name: "SET" },
-      { 
-        name: "RED SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
       { name: "HEADWEAR" },
       { name: "NECK" },
@@ -395,7 +383,7 @@ const layerConfigurations = [
   },
   // Specific for Red Spirit with niqab only
   {
-    growEditionSizeTo: 250,
+    growEditionSizeTo: 105,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -418,7 +406,7 @@ const layerConfigurations = [
         }, 
       },
       { 
-        name: "NIQAB HAIR", 
+        name: "RED SPIRIT NIQABNUN HAIR", 
         options: {
           displayName: "HAIR",
         }, 
@@ -429,19 +417,13 @@ const layerConfigurations = [
           displayName: "SET",
         }, 
       },
-      { 
-        name: "RED SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
-      { name: "NECK" },
     ],
   },
   // Specific for Red Spirit with nun only
   {
-    growEditionSizeTo: 275,
+    growEditionSizeTo: 108,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -464,7 +446,7 @@ const layerConfigurations = [
         }, 
       },
       { 
-        name: "NUN HAIR", 
+        name: "RED SPIRIT NIQABNUN HAIR", 
         options: {
           displayName: "HAIR",
         }, 
@@ -475,12 +457,7 @@ const layerConfigurations = [
           displayName: "SET",
         }, 
       },
-      { 
-        name: "RED SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
       { 
         name: "NUN NECK", 
@@ -492,7 +469,7 @@ const layerConfigurations = [
   },
   // Specific for Blue Spirit (non set)
   {
-    growEditionSizeTo: 300,
+    growEditionSizeTo: 123,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -523,12 +500,7 @@ const layerConfigurations = [
       { name: "TOP" },
       { name: "PANTS" },
       { name: "COAT" },
-      { 
-        name: "BLUE SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
       { name: "HEADWEAR" },
       { name: "NECK" },
@@ -536,7 +508,7 @@ const layerConfigurations = [
   },
   // Specific for Blue Spirit with sets (excluding niqab and nun)
   {
-    growEditionSizeTo: 325,
+    growEditionSizeTo: 138,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -565,12 +537,7 @@ const layerConfigurations = [
         }, 
       },
       { name: "SET" },
-      { 
-        name: "BLUE SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
       { name: "HEADWEAR" },
       { name: "NECK" },
@@ -578,7 +545,7 @@ const layerConfigurations = [
   },
   // Specific for Blue Spirit with niqab only
   {
-    growEditionSizeTo: 350,
+    growEditionSizeTo: 141,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -601,7 +568,7 @@ const layerConfigurations = [
         }, 
       },
       { 
-        name: "NIQAB HAIR", 
+        name: "BLUE SPIRIT NIQABNUN HAIR", 
         options: {
           displayName: "HAIR",
         }, 
@@ -612,19 +579,13 @@ const layerConfigurations = [
           displayName: "SET",
         }, 
       },
-      { 
-        name: "BLUE SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
-        }, 
-      },
+      { name: "HAND WEAPON" },
       { name: "BAGS" },
-      { name: "NECK" },
     ],
   },
   // Specific for Blue Spirit with nun only
   {
-    growEditionSizeTo: 375,
+    growEditionSizeTo: 144,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -647,7 +608,7 @@ const layerConfigurations = [
         }, 
       },
       { 
-        name: "NUN HAIR", 
+        name: "BLUE SPIRIT NIQABNUN HAIR", 
         options: {
           displayName: "HAIR",
         }, 
@@ -656,12 +617,6 @@ const layerConfigurations = [
         name: "NUN", 
         options: {
           displayName: "SET",
-        }, 
-      },
-      { 
-        name: "BLUE SPIRIT HAND WEAPON", 
-        options: {
-          displayName: "HAND WEAPON",
         }, 
       },
       { name: "BAGS" },
@@ -675,7 +630,7 @@ const layerConfigurations = [
   },
   // Specific for Human (non set)
   {
-    growEditionSizeTo: 400,
+    growEditionSizeTo: 174, // +30
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -694,7 +649,7 @@ const layerConfigurations = [
   },
   // Specific for Human with sets (excluding niqab and nun)
   {
-    growEditionSizeTo: 425,
+    growEditionSizeTo: 204,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -711,7 +666,7 @@ const layerConfigurations = [
   },
   // Specific for Human with niqab only
   {
-    growEditionSizeTo: 450,
+    growEditionSizeTo: 210,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -732,12 +687,11 @@ const layerConfigurations = [
       },
       { name: "HAND WEAPON" },
       { name: "BAGS" },
-      { name: "NECK" },
     ],
   },
   // Specific for Human with nun only
   {
-    growEditionSizeTo: 500,
+    growEditionSizeTo: 216,
     layersOrder: [ 
       { name: "BACKGROUND" },
       { name: "BACK WEAPON" },
@@ -766,6 +720,13 @@ const layerConfigurations = [
       },
     ],
   },
+  // Specific for 1/1
+  // {
+  //   growEditionSizeTo: 217,
+  //   layersOrder: [ 
+  //     { name: "1-1" },
+  //   ],
+  // },
 ];
 
 const shuffleLayerConfigurations = true;
